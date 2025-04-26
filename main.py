@@ -1,6 +1,10 @@
 import pygame
 from constants import *
-def main():
+
+Time = pygame.time.Clock()
+dt = 0
+
+def main ():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -10,5 +14,7 @@ def main():
                 return
         screen.fill("black")
         pygame.display.flip()
-if __name__ == "__main__":
+        dt = 1000/Time.tick(60)
+
+if __name__=="__main__":
     main()
