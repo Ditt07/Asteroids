@@ -31,10 +31,15 @@ def main ():
             if event.type == pygame.QUIT:
                 return
         updatable.update(dt)
+
         for astro in asteroids:
             if astro.colide(Player):
                 print("Game over!")
                 sys.exit()
+            for shell in bullets:
+                if astro.colide(shell):
+                    shell.kill()
+                    astro.split()
 
         screen.fill("black")
         for item in drawable:
